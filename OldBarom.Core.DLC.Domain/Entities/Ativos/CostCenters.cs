@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class Contractor : Entity
+    public class CostCenters : Entity
     {
-        public string Name { get; private set; }    
+        public string Name { get; private set; }
         public bool IsEnable { get; private set; }
 
-        public Contractor(string name, int site)
+        public CostCenters(string name, int site)
         {
             ValidateDomain(name, site);
         }
 
-        public Contractor(Guid id, string name, int site)
+        public CostCenters(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;
@@ -32,6 +32,5 @@ namespace OldBarom.Core.DLC.Domain.Entities.Ativos
             Name = name;
             SiteId = site;
         }
-
     }
 }

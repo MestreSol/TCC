@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class ContractType : Entity
+    public class ContractTypes : Entity
     {
         public string Name { get; private set; }
         public bool IsEnable { get; private set; }
 
-        public ContractType(string name, int site)
+        public ContractTypes(string name, int site)
         {
             ValidateDomain(name, site);
         }
 
-        public ContractType(Guid id, string name, int site)
+        public ContractTypes(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;
