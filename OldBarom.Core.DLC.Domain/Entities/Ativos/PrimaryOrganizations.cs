@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class Shift : Entity
+    public class PrimaryOrganizations : Entity
     {
         public string Name { get; private set; }
         public bool IsEnable { get; private set; }
-        public Shift(string name, int site)
+        public PrimaryOrganizations(string name, int site)
         {
             ValidateDomain(name, site);
         }
 
-        public Shift(Guid id, string name, int site)
+        public PrimaryOrganizations(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;

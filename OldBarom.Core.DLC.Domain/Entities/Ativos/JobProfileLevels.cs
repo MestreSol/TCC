@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class PrimaryOrganization : Entity
+    public class JobProfileLevels : Entity
     {
         public string Name { get; private set; }
         public bool IsEnable { get; private set; }
-        public PrimaryOrganization(string name, int site)
+        public JobProfileLevels(string name, int site)
         {
             ValidateDomain(name, site);
         }
 
-        public PrimaryOrganization(Guid id, string name, int site)
+        public JobProfileLevels(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;

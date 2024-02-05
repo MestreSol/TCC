@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class EngineeringSubDivision : Entity
+    public class IdentityGenders : Entity
     {
         public string Name { get; private set; }
         public bool IsEnable { get; private set; }
-
-        public EngineeringSubDivision(string name, int site)
+        
+        public IdentityGenders(string name, int site)
         {
             ValidateDomain(name, site);
         }
 
-        public EngineeringSubDivision(Guid id, string name, int site)
+        public IdentityGenders(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;
