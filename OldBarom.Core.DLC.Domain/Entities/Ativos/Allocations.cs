@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OldBarom.Core.DLC.Domain.Entities.Ativos
+﻿namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-    public class Business : Entity
+    public class Allocations : Entity
     {
         public string Name { get; private set; }
-        public bool IsEnable { get; private set; }
+        public bool IsEnable { get; private set; }        
 
-        public Business(string name, int site)
+        public Allocations(string name, int site)
         {
             ValidateDomain(name, site);
         }
         
-        public Business(Guid id, string name, int site)
+        public Allocations(Guid id, string name, int site)
         {
             ValidateDomain(name, site);
             Id = id;
