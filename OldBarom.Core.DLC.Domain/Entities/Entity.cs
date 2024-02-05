@@ -10,7 +10,7 @@ namespace OldBarom.Core.DLC.Domain.Entities
     public abstract class Entity
     {
         public Guid Id { get; protected set; }
-        public Guid SiteId { get; private set; }
-        public Site Site { get; private set; }
+        public int SiteId { get; protected set; }
+        public Site Site { get; protected set; }
     }
 }

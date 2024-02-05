@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OldBarom.Core.DLC.Domain.Entities.System
 {
-    public class Site : Entity
+    public class Site
     {
+        public int Id { get; private set; }
         public string Name { get; private set; }
     }
 }

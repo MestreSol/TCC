@@ -1,14 +1,13 @@
-namespace OldBarom.Core.DLC.Application.Validation;
-
-public class DoamainExceptionValidation : Exception
+﻿namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
-	public DomainExceptionValidation(string message) : base(message)
-	{
-	}
+    public class DomainExceptionValidation : Exception
+    {
+        public DomainExceptionValidation(string message) : base(message) { }
 
-	public static void When(bool hasError, string message)
-	{
-		if (hasError)
-			throw new DomainExceptionValidation(message);
-	}
+        public static void When(bool hasError, string message)
+        {
+            if (hasError)
+                throw new DomainExceptionValidation(message);
+        }
+    }
 }
