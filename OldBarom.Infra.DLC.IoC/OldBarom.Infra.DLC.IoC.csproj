@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OldBarom.Core.DLC.Application\OldBarom.Core.DLC.Application.csproj" />
+    <ProjectReference Include="..\OldBarom.Infra.DLC.Data\OldBarom.Infra.DLC.Data.csproj" />
+  </ItemGroup>
+
 </Project>

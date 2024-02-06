@@ -17,4 +17,8 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OldBarom.Core.DLC.Domain\OldBarom.Core.DLC.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

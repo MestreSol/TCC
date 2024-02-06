@@ -10,5 +10,7 @@ namespace OldBarom.Core.DLC.Domain.Entities.System
     {
         public int Id { get; private set; }
         public string Name { get; private set; }
+        public Guid SiteOwnerID { get; private set; }
+        public List<Guid> SiteSubOwner { get; private set; }
     }
 }

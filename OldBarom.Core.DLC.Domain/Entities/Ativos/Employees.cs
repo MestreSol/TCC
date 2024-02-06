@@ -81,7 +81,8 @@ namespace OldBarom.Core.DLC.Domain.Entities.Ativos
         public virtual TerminationReasons TerminationReason { get; private set; }
         public Guid ODLDivisionID { get; private set; }
         public virtual ODLDivisions ODLDivision { get; private set; }
-
+        public DateTime ContractRenovation { get; private set; }
+        public Dictionary<string, string> ExtraFilds { get; private set; }
         public Employees(string name)
         {
             ValidateDomain(name);   
@@ -94,7 +95,7 @@ namespace OldBarom.Core.DLC.Domain.Entities.Ativos
             Name = name;
         }
 
-        public Employees(string name, string register, string workday, Guid contractTypeID, Guid shiftID, Guid costCenterID, Guid positionID, Guid jobProfileID, Guid skillID, Guid businessID, Guid primaryOrganizationID, Guid allocationID, Guid typeID, Guid contractorID, Guid cityID, Guid genderID, Guid clockID, Guid supervisorDirectID, Guid supervisorWorkdayID, DateTime admissionDate, DateTime? demissionDate, DateTime? birthDate, DateTime? vacationStartDate, DateTime? effectiveDate, DateTime? leaveDate, DateTime? returnFromLeaveDate, DateTime? vacationEndDate, DateTime? gracePeriodReturnDate, string notes, Guid workStationID, Guid lineID, Guid disabilityTypeID, Guid restrictionTypeID, Guid terminationReasonID, Guid oDLDivisionID)
+        public Employees(string name, string register, string workday, Guid contractTypeID, Guid shiftID, Guid costCenterID, Guid positionID, Guid jobProfileID, Guid skillID, Guid businessID, Guid primaryOrganizationID, Guid allocationID, Guid typeID, Guid contractorID, Guid cityID, Guid genderID, Guid clockID, Guid supervisorDirectID, Guid supervisorWorkdayID, DateTime admissionDate, DateTime? demissionDate, DateTime? birthDate, DateTime? vacationStartDate, DateTime? effectiveDate, DateTime? leaveDate, DateTime? returnFromLeaveDate, DateTime? vacationEndDate, DateTime? gracePeriodReturnDate, string notes, Guid workStationID, Guid lineID, Guid disabilityTypeID, Guid restrictionTypeID, Guid terminationReasonID, Guid oDLDivisionID, DateTime contractRenovation, Dictionary<string, string> extraFilds)
         {
             ValidateDomain(name);
             Name = name;
@@ -132,6 +133,8 @@ namespace OldBarom.Core.DLC.Domain.Entities.Ativos
             RestrictionTypeID = restrictionTypeID;
             TerminationReasonID = terminationReasonID;
             ODLDivisionID = oDLDivisionID;
+            ContractRenovation = contractRenovation;
+            ExtraFilds = extraFilds;
         }
     }
 }
