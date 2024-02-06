@@ -1,9 +1,5 @@
 ﻿using OldBarom.Core.DLC.Domain.Entities.Ativos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OldBarom.Core.DLC.Domain.Entities.System;
 
 namespace OldBarom.Core.DLC.Domain.Entities.Solicitation
 {
@@ -17,24 +13,31 @@ namespace OldBarom.Core.DLC.Domain.Entities.Solicitation
         public Dictionary<string, string> Fields { get; private set; }
         public int StateId { get; private set; }
         public SolicitationStates State { get; private set; }
-
-        public SolicitationRow(Guid solicitationId, Guid employeeId, Dictionary<string, string> fields, int stateId)
+        public int SiteID { get; private set; }
+        public virtual Site Site { get; private set; }
+        
+        public SolicitationRow(Guid solicitationId, Guid employeeId, int stateId, int siteId)
         {
-            ValidationDomain(solicitationId, employeeId, fields, stateId);
+            ValidateDomain(solicitationId, employeeId, stateId, siteId);
         }
 
-        public void ValidationDomain(Guid soliciationId, Guid employeeId, Dictionary<string, string> fields, int stateId)
+        public SolicitationRow(int id, Guid solicitationId, Guid employeeId, int stateId, int siteId)
         {
-            DomainExceptionValidation.When(soliciationId == Guid.Empty, "Invalid SolicitationID");
-            DomainExceptionValidation.When(employeeId == Guid.Empty, "Invalid EmployeeID");
-            DomainExceptionValidation.When(fields == null, "Invalid Fields");
-            DomainExceptionValidation.When(fields.Count <= 0, "Invalid Fields");
-            DomainExceptionValidation.When(stateId <= 0, "Invalid StateID");
+            ValidateDomain(solicitationId, employeeId, stateId, siteId);
+            Id = id;
+        }
 
-            SolicitationId = soliciationId;
+        private void ValidateDomain(Guid solicitationId, Guid employeeId, int stateId, int siteId)
+        {
+            DomainExceptionValidation.When(solicitationId == Guid.Empty, "Solicitation is required");
+            DomainExceptionValidation.When(employeeId == Guid.Empty, "Employee is required");
+            DomainExceptionValidation.When(stateId < 1, "State is required");
+            DomainExceptionValidation.When(siteId < 1, "Site is required");
+
+            SolicitationId = solicitationId;
             EmployeeId = employeeId;
-            this.Fields = fields;
             StateId = stateId;
-        }
+            SiteID = siteId;
+        }   
     }
 }

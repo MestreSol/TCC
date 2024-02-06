@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OldBarom.Core.DLC.Domain.Entities.Ativos
+﻿namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 {
     public class DisabilityTypes : Entity
     {
@@ -23,11 +17,14 @@ namespace OldBarom.Core.DLC.Domain.Entities.Ativos
 
         private void ValidateDomain(string name, int site)
         {
+            // Validação do nome
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Name is required");
-            DomainExceptionValidation.When(name.Length < 3, "Name too short");
-            DomainExceptionValidation.When(name.Length > 100, "Name too long");
+            DomainExceptionValidation.When(name.Length < 3 || name.Length > 100, "Name must be between 3 and 100 characters");
+
+            // Validação do site
             DomainExceptionValidation.When(site < 1, "Site is required");
 
+            // Definição das propriedades
             Name = name;
             SiteId = site;
         }
